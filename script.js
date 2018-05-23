@@ -13,7 +13,6 @@ function bubbleSort(arr) {
 				x[i] = x[i+1];
 				x[i+1] = temp;
 				sort = true;
-
 			}
 		}
 		n--;
@@ -74,3 +73,39 @@ function insertionSort(arr) {
 	return arr;
 }
 console.log(insertionSort([12, 345, 4, 546, 122, 84, 98, 64, 9, 1, 4223, 545, 23, 274, 213]));
+
+// END OF SORTING ALGORITHMS
+
+// Searching algorithms
+
+// Linear search
+function linearSearch(arr, toFind) {
+	for (let i=0; i < arr.length; i++) {
+		if (arr[i] === toFind) return i; //return index
+	}
+	return -1;
+}
+console.log(linearSearch([2,4,'JavaScript', 99], 'JavaScript'));
+console.log(linearSearch([2,4,'JavaScript', 99], 7));
+
+// Binary search
+function binarySearch(arr, toFind) {
+	let sorted = arr.sort();
+	let left = 0;
+	let right = arr.length - 1;
+	while (left <= right) {
+		const mid = Math.floor((left + right) / 2);
+		if(sorted[mid] === toFind) {
+			//return toFind
+			return sorted[mid];
+		} else if (sorted[mid] < toFind) {
+			left = mid + 1;
+		} else {
+			right = mid - 1;
+		}
+	}
+	return -1;
+}
+console.log(binarySearch([2,4,90,65,1,99], 65));
+
+// END OF SEARCHING ALGORITHMS
