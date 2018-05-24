@@ -16,7 +16,7 @@ function bubbleSort(arr) {
 			}
 		}
 		n--;
-	} while (sort)
+	} while (sort) 
 	return x;
 	console.timeEnd('bubbleSort');
 }
@@ -109,3 +109,47 @@ function binarySearch(arr, toFind) {
 console.log(binarySearch([2,4,90,65,1,99], 65));
 
 // END OF SEARCHING ALGORITHMS
+
+// Factorial Algorithm
+//recursive
+function factorial(x) {
+	if (x === 0) {
+		return 1;
+	}
+
+	return x * factorial(x-1);
+}
+console.log(factorial(5));
+// non recursive
+function nonRecursiveFactorial(x) {
+	let res = 1;
+	for(let i = 1; i <= x; i++){
+		res *= i;
+	}
+	return res;
+}
+console.log(nonRecursiveFactorial(5));
+
+// Fibonnaci number
+//recursive
+function recFib(len) {
+	if(len === 1) {
+		return [0,1];
+	} else {
+		var s = recFib(len - 1);
+		s.push(s[s.length - 1] + s[s.length - 2]);
+	}
+	return s;
+}
+console.log(recFib(9));
+// non recursive
+function fibonacci(len) {
+	let fArr = [0,1];
+	let fNum = 1;
+	for (let i = 1; i < len-1; i++) {
+		fArr.push(fNum);
+		fNum = fNum + fArr[i];
+	}
+	return fArr;
+}
+console.log(fibonacci(9));
